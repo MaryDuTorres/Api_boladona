@@ -31,9 +31,10 @@ exports.remove = async (req, res) => {
 exports.list = async (req, res) => {
     const query = {};
     if (req.query.driverId) {
-        query.assignedDriver = req.query.driverId; // Filtra pelo ID do motorista
+        query.assignedDriver = req.query.driverId;
     }
     
     res.json(await
         Order.find(query).populate('client assignedDriver')); 
+
 };
